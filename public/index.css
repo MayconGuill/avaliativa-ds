@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+#formTarefa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#formTarefa input[type="text"],
+#formTarefa input[type="date"] {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+#formTarefa button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+#formTarefa button:hover {
+    background: #45a049;
+}
+
+#ordenarData {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+#ordenarData:hover {
+    background: #45a049;
+}
+
+#listaTarefas .tarefa {
+    background: #f9f9f9;
+    border-left: 5px solid #4CAF50;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+#listaTarefas .tarefa:hover {
+    transform: translateY(-2px);
+}
+
+.tarefa b {
+    font-size: 18px;
+    color: #333;
+}
+
+.botoes {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.botoes button {
+    flex: 1;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: opacity 0.2s;
+}
+
+.botoes button:hover {
+    opacity: 0.8;
+}
+
+.botoes button:nth-child(1) {
+    background: #2196F3;
+    color: white;
+}
+
+.botoes button:nth-child(2) {
+    background: #FFC107;
+    color: white;
+}
+
+.botoes button:nth-child(3) {
+    background: #f44336;
+    color: white;
+}
+
+.tarefa .status-concluida {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.tarefa .status-pendente {
+    color: #FF9800;
+    font-weight: bold;
+}
+
+@media (max-width: 480px) {
+    #formTarefa {
+        flex-direction: column;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+}
