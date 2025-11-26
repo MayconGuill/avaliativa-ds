@@ -16,7 +16,7 @@ Implementar um sistema simples que funcione via:
 
 * Front-end: HTML, CSS, JavaScript
 * Back-end: NodeJs
-* Cliente HTTP: Fetch API
+* Banco: MySQL
 
 ---
 
