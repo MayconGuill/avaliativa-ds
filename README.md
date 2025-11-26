@@ -162,4 +162,4 @@ Json com lista de tarefas
 
 ---
 
-Feito com 💻 por **Maycon Rodrigues** para atividade avaliativa de desenvolvimento full-stack.
+Feito por **Maycon Rodrigues** para atividade avaliativa de desenvolvimento full-stack.
