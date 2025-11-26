@@ -4,7 +4,7 @@ const connection = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "cimatec",
-    database: "aula2910"
+    database: "taskflow"
 });
 
 module.exports = connection;

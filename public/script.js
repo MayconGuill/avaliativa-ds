@@ -8,8 +8,8 @@ function carregarTarefas() {
             lista.innerHTML = "";
 
             tarefas.forEach(t => {
-                lista.innerHTML += `
-                    <div class="tarefa">
+                lista.innerHTML += 
+                `<div class="tarefa">
                         <b>${t.titulo}</b><br>
                         Data prevista: ${formatarData(t.data_prevista)}<br>
                         Status: <b>${t.status_atividade}</b>
@@ -19,8 +19,7 @@ function carregarTarefas() {
                             <button onclick="editar(${t.id}, '${t.titulo}', '${t.data_prevista}')">Editar</button>
                             <button onclick="excluir(${t.id})">Excluir</button>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
         });
 }
@@ -34,7 +33,7 @@ document.querySelector("#formTarefa").addEventListener("submit", e => {
     fetch(api, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ titulo, data_prevista })
+        body: JSON.stringify({titulo, data_prevista})
     }).then(() => {
         document.querySelector("#formTarefa").reset();
         carregarTarefas();
@@ -52,8 +51,8 @@ document.querySelector("#ordenarData").addEventListener("click", () => {
 
             tarefas.forEach(t => {
                 const statusClass = t.status_atividade === "concluida" ? "concluida" : "pendente";
-                lista.innerHTML += `
-                    <div class="tarefa ${statusClass}">
+                lista.innerHTML += 
+                    `<div class="tarefa ${statusClass}">
                         <b>${t.titulo}</b><br>
                         Data prevista: ${formatarData(t.data_prevista)}<br>
                         Status: <b>${t.status_atividade}</b>
@@ -62,20 +61,21 @@ document.querySelector("#ordenarData").addEventListener("click", () => {
                             <button onclick="editar(${t.id}, '${t.titulo}', '${t.data_prevista}')">Editar</button>
                             <button onclick="excluir(${t.id})">Excluir</button>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
         });
 });
 
 function concluir(id) {
-    fetch(`${api}/${id}/concluir`, { method: "PUT" })
-        .then(() => carregarTarefas());
+    fetch(`${api}/${id}/concluir`, { 
+        method: "PUT" 
+    }).then(() => carregarTarefas());
 }
 
 function excluir(id) {
-    fetch(`${api}/${id}`, { method: "DELETE" })
-        .then(() => carregarTarefas());
+    fetch(`${api}/${id}`, { 
+        method: "DELETE" 
+    }).then(() => carregarTarefas());
 }
 
 function editar(id, tituloAntigo, dataAntiga) {
