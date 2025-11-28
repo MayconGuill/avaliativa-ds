@@ -19,7 +19,7 @@ function carregarTarefas() {
                             <button onclick="editar(${t.id}, '${t.titulo}', '${t.data_prevista}')">Editar</button>
                             <button onclick="excluir(${t.id})">Excluir</button>
                         </div>
-                    </div>`;
+                </div>`;
             });
         });
 }
@@ -50,18 +50,18 @@ document.querySelector("#ordenarData").addEventListener("click", () => {
             lista.innerHTML = "";
 
             tarefas.forEach(t => {
-                const statusClass = t.status_atividade === "concluida" ? "concluida" : "pendente";
                 lista.innerHTML += 
-                    `<div class="tarefa ${statusClass}">
+                `<div class="tarefa">
                         <b>${t.titulo}</b><br>
                         Data prevista: ${formatarData(t.data_prevista)}<br>
                         Status: <b>${t.status_atividade}</b>
+
                         <div class="botoes">
                             <button onclick="concluir(${t.id})">Concluir</button>
                             <button onclick="editar(${t.id}, '${t.titulo}', '${t.data_prevista}')">Editar</button>
                             <button onclick="excluir(${t.id})">Excluir</button>
                         </div>
-                    </div>`;
+                </div>`;
             });
         });
 });

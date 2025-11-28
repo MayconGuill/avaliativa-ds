@@ -12,22 +12,22 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/tarefas", (req, res) => {
     db.query(
         "SELECT * FROM tarefas ORDER BY id ASC", 
-        (err, results) => {
+        (err, resultado) => {
             if (err) return res.status(500).json(err);
-            res.json(results);
+            res.json(resultado);
     });
 });
 
 app.post("/tarefas", (req, res) => {
     const {titulo, data_prevista} = req.body;
 
-    if (!titulo || !data_prevista) return res.status(400).json({ msg: "Campos obrigatórios." });
+    if (!titulo || !data_prevista) return res.status(400).json({msg: "Campos obrigatórios."});
 
     db.query(
         "INSERT INTO tarefas (titulo, data_prevista, status_atividade, criado_em) VALUES (?, ?, 'pendente', NOW())", [titulo, data_prevista],
-        (err, result) => {
+        (err, resultado) => {
             if (err) return res.status(500).json(err);
-            res.json({ id: result.insertId, msg: "Tarefa criada!" });
+            res.json({id: resultado.insertId, msg: "Tarefa criada!"});
         }
     );
 });
@@ -40,7 +40,7 @@ app.put("/tarefas/:id", (req, res) => {
         "UPDATE tarefas SET titulo=?, data_prevista=? WHERE id=?", [titulo, data_prevista, id],
         (err) => {
             if (err) return res.status(500).json(err);
-            res.json({ msg: "Tarefa atualizada!" });
+            res.json({msg: "Tarefa atualizada!"});
         }
     );
 });
@@ -52,7 +52,7 @@ app.put("/tarefas/:id/concluir", (req, res) => {
         "UPDATE tarefas SET status_atividade='concluida' WHERE id=?", [id],
         (err) => {
             if (err) return res.status(500).json(err);
-            res.json({ msg: "Tarefa concluída!" });
+            res.json({msg: "Tarefa concluída!"});
         }
     );
 });
@@ -64,7 +64,7 @@ app.delete("/tarefas/:id", (req, res) => {
         "DELETE FROM tarefas WHERE id=?", [id], 
         (err) => {
             if (err) return res.status(500).json(err);
-            res.json({ msg: "Tarefa removida!" });
+            res.json({msg: "Tarefa removida!"});
     });
 });
 
